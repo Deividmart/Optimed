@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OPTIMED - Distribución de Medicamentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="optimed.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>
+      <img src="medicine-icon.svg" alt="Medicine Icon" class="medicine-icon" />
+      OPTIMED
+    </h1>
+    <div class="toggle-buttons">
+      <button id="btn-register" class="active">Registrarse</button>
+      <button id="btn-login">Iniciar Sesión</button>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <form id="register-form">
+      <label for="reg-username">Nombre de usuario</label>
+      <input type="text" id="reg-username" required />
+
+      <label for="reg-password">Contraseña</label>
+      <input type="password" id="reg-password" required />
+
+      <label for="reg-estrato">Estrato Socioeconómico</label>
+      <select id="reg-estrato" required>
+        <option value="" disabled selected>Seleccione estrato</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+
+      <button type="submit">Registrarse</button>
+    </form>
+
+    <form id="login-form" style="display:none;">
+      <label for="login-username">Nombre de usuario</label>
+      <input type="text" id="login-username" required />
+
+      <label for="login-password">Contraseña</label>
+      <input type="password" id="login-password" required />
+
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div id="welcome-section" class="welcome" style="display:none;">
+      <h2>Bienvenido, <span id="welcome-username"></span></h2>
+      <p>Su estrato socioeconómico es: <strong><span id="welcome-estrato"></span></strong></p>
+      <p>Su medicina estará lista en menos de <strong><span id="welcome-hours"></span> horas</strong>.</p>
+
+      <label for="delivery-option">Seleccione opción de entrega</label>
+      <select id="delivery-option" required>
+        <option value="" disabled selected>Seleccione opción</option>
+        <option value="punto">Punto de entrega (Local Audifarma, Cl. 56 #11-70)</option>
+        <option value="domicilio">Domicilio</option>
+      </select>
+
+      <div id="address-container" style="display:none; margin-bottom: 16px;">
+        <label for="address">Dirección de domicilio</label>
+        <input type="text" id="address" placeholder="Ingrese su dirección" />
+        <label>
+          <input type="checkbox" id="address-confirm" />
+          Confirmo que la dirección es correcta
+        </label>
+      </div>
+
+      <button id="btn-confirm-delivery">Confirmar entrega</button>
+
+      <p>Opción de entrega confirmada: <strong><span id="welcome-delivery"></span></strong></p>
+      <p id="welcome-address-container" style="display:none;">
+        Dirección: <strong><span id="welcome-address"></span></strong>
+      </p>
+
+      <button id="btn-logout">Cerrar Sesión</button>
+    </div>
+  </div>
+
+  <script src="optimed.js"></script>
+</body>
+</html>
